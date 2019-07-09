@@ -187,7 +187,7 @@ def load_source_vocabs(folder: str) -> List[Vocab]:
     :return: List of vocabularies.
     """
     return [vocab_from_json(os.path.join(folder, fname)) for fname in
-            sorted([f for f in os.listdir(folder) if f.startswith(C.VOCAB_SRC_PREFIX)])]
+            sorted([f for f in os.listdir(folder) if f.startswith(C.VOCAB_SRC_PREFIX)], key=lambda x: int(x.split('.')[-2]))]
 
 
 def load_target_vocab(folder: str) -> Vocab:
